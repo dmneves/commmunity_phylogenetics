@@ -1,0 +1,18 @@
+require(diversitree)
+
+tree <- collapse.singles(tree)
+
+pdf('phylotrait_plot.pdf', height = 15, width = 15)
+
+trait.plot(tree, as.data.frame(t(spp)), tip.color = 'white',
+	cols = list(MS = c('white', "darkgreen"),
+	MT = c("white", "green"),
+	ML = c("white", "yellow")),
+	cex.lab = 0.4,
+	legend = F, edge.color = 'gray')
+
+legend('topright', legend = c('MS', 'MT', 'ML'), pch = 15,
+	col = c('darkgreen', 'green', 'yellow'), bty = 'n', cex = 2)
+
+dev.off()
+
